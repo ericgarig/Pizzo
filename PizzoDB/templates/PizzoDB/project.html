@@ -1,0 +1,58 @@
+{% extends 'PizzoDB/base.html' %}
+
+{% block content %}
+
+	<h4 class="page-header">{{ project.code }}  –  {{ project.name }}</h4>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<p class="list-group-item active">Summary</p>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="text-right">Labor:</p>
+					<p class="text-right">Materials:</p>
+					<p class="text-right">Delivery:</hp>
+					<p class="text-right">Subcontractors:</p>
+					<p class="text-right">Total Cost:</p>
+					<p class="text-right">Profit:</p>
+				</div>
+				<div class="col-sm-6">
+					<p>{{ cost_labor }}</p>
+					<p>{{ cost_materials }}</p>
+					<p>{{ cost_delivery }}</p>
+					<p>{{ cost_subcontractors }}</p>
+					<p>{{ cost_total }}</p>
+					<p>{{ cost_profit_percent }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<p class="list-group-item active">Info</p>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="text-right">Proposed Cost:</p>
+					<p class="text-right">Start Date:</p>
+				</div>
+				<div class="col-sm-6">
+					<p>{{ project.proposed_cost }}</p>
+					<p>{{ project.date_start }}</p>
+				</div>
+			</div>	
+		</div>
+		<div class="col-sm-6">
+			<p class="list-group-item active">Notes</p>
+			<p>{{ project.notes }}</p>
+
+		</div>
+	</div>
+
+	<div class="page-header">
+		<div class="list-group">
+			<p class="list-group-item active">Reports</p>
+			<a href="#" class="list-group-item">Archive Project</a>
+			<a href="#" class="list-group-item">Generate Invoice</a>
+		</div>
+	</div>
+
+
+{% endblock %}

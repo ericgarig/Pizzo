@@ -8,6 +8,8 @@
 # Directories #
 ###############
 **/.DS_Store
+lib/
+bin/
 
 
 #########
