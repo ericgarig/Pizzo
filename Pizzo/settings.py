@@ -68,8 +68,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'PizzoDB',
-    # 'polls',
-    # 'blog',
+    'attendance',
+    'employee',
+    'material',
 )
 
 MIDDLEWARE_CLASSES = (

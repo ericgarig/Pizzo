@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h4 class="page-header" style="margin-top:0px">{{ inventory.name }}</h4>
+
+	<div class="row">
+		<div class="col-sm-5">
+			<p class="list-group-item active">Info</p>
+			<div class="row">
+				<div class="col-sm-4">
+					<p class="text-right">Category:</p>
+					<p class="text-right">Subtype:</p>
+					<p class="text-right">Name:</p>
+					<p class="text-right">Cost:</p>
+				</div>
+				<div class="col-sm-8">
+					<p>{{ inventory.category }}</p>
+					<p>{{ inventory.subtype }}</p>
+					<p>{{ inventory.name }}</p>
+					<p>{{ inventory.cost }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-7">
+			<p class="list-group-item active">Description</p>
+			<p>{{ inventory.description }}</p>
+		</div>
+	</div>
+
+	<div class="page-header">
+		<div class="list-group">
+			<p class="list-group-item active">Projects</p>
+			{% for item in inventory.material_set.all %}
+				<a href="/project/{{item.project.id}}" class="list-group-item">{{ item.project }} [ {{ item.date }} ]</a>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

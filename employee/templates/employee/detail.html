@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h4 class="page-header" style="margin-top:0px">{{ employee.full_name }} - {{ employee.employee_category }}</h4>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<p class="list-group-item active">Info</p>
+			<div class="row">
+				<div class="col-sm-3">
+					<p class="text-right">SSN:</p>
+					<p class="text-right">Address:</p>
+					<p class="text-right">Home Phone:</p>
+					<p class="text-right">Cell Phone:</p>
+				</div>
+				<div class="col-sm-9">
+					<p>{{ employee.ssn_display }}</p>
+					<p>{{ employee.full_address }}</p>
+					<p>{{ employee.phone_home_display }}</p>
+					<p>{{ employee.phone_cell_display }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<p class="list-group-item active">Dates</p>
+			<div class="row">
+				<div class="col-sm-4">
+					<p class="text-right">Born:</p>
+					<p class="text-right">Hired:</p>
+					<p class="text-right">Available:</p>
+					<p class="text-right">Fired:</p>
+				</div>
+				<div class="col-sm-8">
+					<p>{{ employee.date_birth }}</p>
+					<p>{{ employee.date_hire }}</p>
+					<p>«available»</p>
+					<p>{{ employee.date_fire }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<p class="list-group-item active">Employment</p>
+			<div class="row">
+				<div class="col-sm-4">
+					<p class="text-right">Active:</p>
+					<p class="text-right">Pancho:</p>
+					<p class="text-right">Daboin:</p>
+					<p class="text-right">Rate:</p>
+				</div>
+				<div class="col-sm-8">
+					<p>{{ employee.active }}</p>
+					<p>{{ employee.pancho }}</p>
+					<p>{{ employee.daboin }}</p>
+					<p>{{ employee.rate_hourly }} ( {{ employee.rate_increase_date_display }} )</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-header">
+		<div class="list-group">
+			<p class="list-group-item active">Attendance</p>
+			{% for attendance in employee.attendance_set.all|dictsortreversed:"date" %}
+				<a href="/attendance/{{attendance.id}}" class="list-group-item">{{ attendance.date }} - {{ attendance.project }}</a>
+			{% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}

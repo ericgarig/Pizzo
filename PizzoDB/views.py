@@ -1,37 +1,29 @@
 from django.shortcuts import get_object_or_404, render
-from django.views.generic import ListView
+from django.views import generic
 
 from .models import Project
+from attendance.models import Attendance
+from attendance import views
+# from material import views
 from Pizzo import views
 
-class ProjectListView(ListView):
 
+def active_projects(self):
+	return Project.objects.filter(date_finish__isnull=True)
+
+
+class ProjectListView(generic.ListView):
+	template_name = 'PizzoDB/list.html'
+	context_object_name = 'object_list'
+
+	def get_queryset(self):
+		return active_projects(self)
+
+
+class ProjectDetailView(generic.DetailView):
 	model = Project
-
-	def get_context_data(self, **kwargs):
-		context = super(ProjectListView, self).get_context_data(**kwargs)
-		return Project.objects.order_by('-code')
-
-def active_projects(request):
-	return Project.objects.filter(active=1)
-
-def index(request):
-	project_list = active_projects(request)
-	context = {'project_list': project_list}
-	return render(request, 'PizzoDB/home.html', context)
-
-def detail(request, project_id):
-	project = get_object_or_404(Project, pk=project_id)
-	return render(request, 'PizzoDB/project.html', {'project':project})
+	template_name = 'PizzoDB/detail.html'
 
 
 
 
-
-# class IndexView(generic.ListView):
-# 	template_name = 'polls/index.html'
-# 	context_object_name = 'latest_question_list'
-
-# 	def get_queryset(self):
-# 		"""Return the last five published quesitons"""
-# 		return Question.objects.order_by('-pub_date')[:5]

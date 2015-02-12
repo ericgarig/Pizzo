@@ -1,8 +1,8 @@
-{% extends 'PizzoDB/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
-	<h4 class="page-header">{{ project.code }}  –  {{ project.name }}</h4>
+	<h4 class="page-header" style="margin-top:0px">{{ project.code }}  –  {{ project.name }}</h4>
 
 	<div class="row">
 		<div class="col-sm-3">
@@ -17,7 +17,7 @@
 					<p class="text-right">Profit:</p>
 				</div>
 				<div class="col-sm-6">
-					<p>{{ cost_labor }}</p>
+					<p>{{ labor_cost }}</p>
 					<p>{{ cost_materials }}</p>
 					<p>{{ cost_delivery }}</p>
 					<p>{{ cost_subcontractors }}</p>
@@ -32,10 +32,12 @@
 				<div class="col-sm-6">
 					<p class="text-right">Proposed Cost:</p>
 					<p class="text-right">Start Date:</p>
+					<p class="text-right">Status:</p>
 				</div>
 				<div class="col-sm-6">
 					<p>{{ project.proposed_cost }}</p>
 					<p>{{ project.date_start }}</p>
+					<p>{{ project.active }}</p>
 				</div>
 			</div>	
 		</div>
@@ -49,8 +51,26 @@
 	<div class="page-header">
 		<div class="list-group">
 			<p class="list-group-item active">Reports</p>
-			<a href="#" class="list-group-item">Archive Project</a>
-			<a href="#" class="list-group-item">Generate Invoice</a>
+			<a href="#" class="list-group-item">«Archive Project»</a>
+			<a href="#" class="list-group-item">«Generate Invoice»</a>
+		</div>
+	</div>
+
+	<div class="page-header">
+		<div class="list-group">
+			<p class="list-group-item active">Attendance</p>
+			{% for attendance in project.attendance_set.all|dictsortreversed:"date" %}
+				<a href="/attendance/{{attendance.id}}" class="list-group-item">{{ attendance.date }} - {{ attendance.employee.nick_title }} [ {{ attendance.cost_daily }} ]</a>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="page-header">
+		<div class="list-group">
+			<p class="list-group-item active">Materials</p>
+			{% for item in project.material_set.all|dictsortreversed:"date" %}
+				<a href="/material/inventory/{{item.inventory.id}}" class="list-group-item">{{ item.material_name }} [ {{ item.date }} ]</a>
+			{% endfor %}
 		</div>
 	</div>
 

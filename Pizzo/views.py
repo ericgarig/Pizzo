@@ -5,7 +5,8 @@ from django.template import Context
 import datetime
 
 def hello(request):
-    return HttpResponse('Sup World')
+	msg = request
+	return HttpResponse(msg)
 
 def now(request):
     now = datetime.datetime.now()
