@@ -5,9 +5,9 @@
 	{% if object_list %}
 		<div class="col-sm-8">
 			<div class="list-group">
-				<p class="list-group-item active">Inventory</p>
-				{% for object in object_list %}
-					<a href="{{object.id}}/" class="list-group-item">{{ object.name}}</a>
+				<p class="list-group-item active">Materials Taken out</p>
+				{% for material in material_list|dictsort:"inventory.category" %}
+					<a href="{{material.id}}/" class="list-group-item">{{ material.inventory.name}}</a>
 				{% endfor %}
 			</div>
 		</div>

@@ -1,11 +1,8 @@
-from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
 from .models import Project
 from attendance.models import Attendance
-from attendance import views
-# from material import views
-from Pizzo import views
+from material.models import Material
 
 
 def active_projects(self):

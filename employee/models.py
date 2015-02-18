@@ -45,7 +45,10 @@ class Employee(models.Model):
 		return "%s, %s ( %s )" % (self.name_last, self.name_first, self.name_nick)
 
 	def full_address(self):
-		return "%s\n%s, %s %s" % (self.address_street, self.address_city, self.address_state, self.address_zip)
+		if len(self.address_street):
+			return "%s\n%s, %s %s" % (self.address_street, self.address_city, self.address_state, self.address_zip)
+		else:
+			return "No address specified"
 
 	def phone_number(self, phone_string):
 		if phone_string is not None and len(phone_string)==10:

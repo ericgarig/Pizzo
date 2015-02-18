@@ -1,10 +1,5 @@
 from django.db import models
 
-# from attendance import models
-
-
-# separate into mulitple files - one per class
-
 class Project(models.Model):
 	name = models.CharField(max_length=255)
 	code = models.CharField(max_length=8)
@@ -20,6 +15,3 @@ class Project(models.Model):
 
 	def active(self):
 		return not self.date_finish
-
-	# def labor_cost(self):
-	# 	return self.attendace.cost

@@ -7,18 +7,22 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<p class="list-group-item active">Info</p>
-			<div class="row">
-				<div class="col-sm-4">
-					<p class="text-right">Date:</p>
-					<p class="text-right">Hours:</p>
-					<p class="text-right">Cost:</p>
-				</div>
-				<div class="col-sm-8">
-					<p>{{ attendance.date }}</p>
-					<p>{{ attendance.hours }}</p>
-					<p>{{ attendance.cost_daily }}</p>
-				</div>
-			</div>
+			<table class="table-condensed">
+				<tbody>
+					<tr>
+						<td class="text-right">Date:</td>
+						<td>{{ attendance.date }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Hours:</td>
+						<td>{{ attendance.hours }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Cost:</td>
+						<td>{{ attendance.cost_daily }}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="col-sm-3">
 			<p class="list-group-item active">Employee</p>

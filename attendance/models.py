@@ -1,8 +1,6 @@
 from django.db import models
 
-# from PizzoDB.models import Project
-# from employee.models import Employee
-
+from django.db.models import Sum
 
 class Attendance(models.Model):
 	project = models.ForeignKey('PizzoDB.Project')
@@ -17,3 +15,5 @@ class Attendance(models.Model):
 	def __str__(self):
 		return "%s - %s (%s)" % (str(self.project), str(self.employee), str(self.date))
 
+	def total_labor(self):
+		return Attendance.objects.filter(project_id=self.project).aggregate(total_cost=Sum('cost_daily')).values()[0]

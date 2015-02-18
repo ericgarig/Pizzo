@@ -7,54 +7,72 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<p class="list-group-item active">Info</p>
-			<div class="row">
-				<div class="col-sm-3">
-					<p class="text-right">SSN:</p>
-					<p class="text-right">Address:</p>
-					<p class="text-right">Home Phone:</p>
-					<p class="text-right">Cell Phone:</p>
-				</div>
-				<div class="col-sm-9">
-					<p>{{ employee.ssn_display }}</p>
-					<p>{{ employee.full_address }}</p>
-					<p>{{ employee.phone_home_display }}</p>
-					<p>{{ employee.phone_cell_display }}</p>
-				</div>
-			</div>
+			<table class="table-condensed">
+				<tbody>
+					<tr>
+						<td class="text-right">SSN:</td>
+						<td>{{ employee.ssn_display }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Address:</td>
+						<td>{{ employee.full_address }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Home Phone:</td>
+						<td>{{ employee.phone_home_display }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Cell Phone:</td>
+						<td>{{ employee.phone_cell_display }}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="col-sm-3">
 			<p class="list-group-item active">Dates</p>
-			<div class="row">
-				<div class="col-sm-4">
-					<p class="text-right">Born:</p>
-					<p class="text-right">Hired:</p>
-					<p class="text-right">Available:</p>
-					<p class="text-right">Fired:</p>
-				</div>
-				<div class="col-sm-8">
-					<p>{{ employee.date_birth }}</p>
-					<p>{{ employee.date_hire }}</p>
-					<p>«available»</p>
-					<p>{{ employee.date_fire }}</p>
-				</div>
-			</div>
+			<table class="table-condensed">
+				<tbody>
+					<tr>
+						<td class="text-right">Born:</td>
+						<td>{{ employee.date_birth }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Hired:</td>
+						<td>{{ employee.date_hire }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Available:</td>
+						<td>«available»</td>
+					</tr>
+					<tr>
+						<td class="text-right">Fired:</td>
+						<td>{{ employee.date_fire }}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="col-sm-3">
 			<p class="list-group-item active">Employment</p>
-			<div class="row">
-				<div class="col-sm-4">
-					<p class="text-right">Active:</p>
-					<p class="text-right">Pancho:</p>
-					<p class="text-right">Daboin:</p>
-					<p class="text-right">Rate:</p>
-				</div>
-				<div class="col-sm-8">
-					<p>{{ employee.active }}</p>
-					<p>{{ employee.pancho }}</p>
-					<p>{{ employee.daboin }}</p>
-					<p>{{ employee.rate_hourly }} ( {{ employee.rate_increase_date_display }} )</p>
-				</div>
-			</div>
+			<table class="table-condensed">
+				<tbody>
+					<tr>
+						<td class="text-right">Active:</td>
+						<td>{{ employee.active }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Pancho:</td>
+						<td>{{ employee.pancho }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Daboin:</td>
+						<td>{{ employee.daboin }}</td>
+					</tr>
+					<tr>
+						<td class="text-right">Rate:</td>
+						<td>{{ employee.rate_hourly }} ( {{ employee.rate_increase_date_display }} )</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 
