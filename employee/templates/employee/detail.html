@@ -85,5 +85,14 @@
 		</div>
 	</div>
 
+	<div class="page-header">
+		<div class="list-group">
+			<p class="list-group-item active">Vacation Days Used</p>
+			{% for day in employee.vacation_day_set.all|dictsortreversed:"date_used" %}
+				<a href="/vacation_day/{{day.id}}" class="list-group-item">{{ day.date_used }}</a>
+			{% endfor %}
+		</div>
+	</div>
+
 
 {% endblock %}

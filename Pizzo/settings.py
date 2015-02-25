@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'attendance',
     'employee',
     'material',
+    'vacation_day',
 )
 
 MIDDLEWARE_CLASSES = (

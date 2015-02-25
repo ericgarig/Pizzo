@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+	{% if object_list %}
+		<div class="col-sm-8">
+			<div class="list-group">
+				<p class="list-group-item active">Used Vacation Days</p>
+				{% for day in vacation_day_list|dictsortreversed:"date_used" %}
+					<a href="{{day.id}}/" class="list-group-item">{{ day.employee.name_nick }} - {{ day.date_used }} [ {{days.vacation_for_employee}}</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<p>No days used.</p>
+
+	{% endif %}
+	
+{% endblock %}

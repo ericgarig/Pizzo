@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 	url(r'^attendance/', include('attendance.urls', namespace="attendance")),
 	url(r'^employee/', include('employee.urls', namespace="employee")),
 	url(r'^material/', include('material.urls', namespace="material")),
+	url(r'^vacation_day/', include('vacation_day.urls', namespace="vacation_day")),
 	url(r'^', include('PizzoDB.urls', namespace="PizzoDB")),
 
 
